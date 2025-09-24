@@ -24,17 +24,15 @@ transition: background-color 2s ease;
       width: 350px;
       position: fixed;
       cursor: move;
-
+      filter: invert(0.8);
       mix-blend-mode: color-burn;
-  
-  
     }
 
      body.dark-mode  .img-container{
         mix-blend-mode: exclusion;
-
         opacity: 0.9;
-        
+        filter: none;
+     }
      }
 
     .img-container img {
