@@ -178,18 +178,20 @@ position: absolute;
           width: 300px;
       } */
   }
-  @media screen and (max-width: 720px) {
+
+
+  /* @media screen and (max-width: 720px) {
       .horizontal-col-container #col-all
       {
         position: static; 
-        columns: 1;         /* カラム数を1つに固定 */
-        column-gap: 0;      /* カラム間の隙間もなくす（任意） */
+        columns: 1;   
+        column-gap: 0;  
         width: 200px; 
         max-height: none;
         overflow: scroll;
         margin-top: calc(30vh - 95px);
       }
-  }
+  } */
 
 
 
