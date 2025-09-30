@@ -276,6 +276,11 @@ break-inside: avoid;
 
 
 /* museum tag */
+
+.logo_museum_container {
+  isolation: isolate;
+}
+
 .logo_museum_container img {
 width: 282px;
 position: fixed;
@@ -283,6 +288,9 @@ right: 35px;
 bottom: calc(40vh - 95px);
 }
 
+.logo_museum_container a {
+ mix-blend-mode: multiply; 
+}
 
 
 /* @media screen and (max-width: 720px) {
