@@ -1,0 +1,363 @@
+
+
+* {
+margin: 0;
+font-weight: 200;
+font-family: 'Times New Roman', Times, serif;
+font-size: 14px;
+line-height: 1.2em;
+letter-spacing: 0.２px;
+box-sizing: border-box;
+color: var(--dark);     
+} 
+
+:root {
+--dark: rgb(42, 34, 25);
+--light: rgb(240,240,240);
+}
+
+body {
+background-color: var(--light);
+transition: background-color 2s ease;
+} 
+
+body.dark-mode {
+background-color: var(--dark);      
+} 
+
+
+
+
+
+/* header */
+
+.header {
+box-sizing: border-box;
+width: 400px;
+padding:20px 34px;
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+align-items: flex-end; 
+position: fixed;
+gap: 12px;
+right: 0;
+z-index: 9999;
+}
+
+.header a {
+text-decoration: none;
+color: var(--dark);
+}
+
+.colophone {
+position: fixed;
+top: 20px;
+left: 34px;
+transform: translateX(0%);
+margin-right:140px;
+z-index: 9999;
+}
+
+
+/* colophone */
+/* default */
+.colophone_txt {
+margin-top:20px;
+opacity: 0;
+visibility: hidden;
+transition: opacity 0.3s ease;
+position: relative; 
+}
+
+.colophone_txt::after {
+content: "";
+position: absolute;
+bottom: -220px; 
+right: 0%; 
+transform: translateX(0%); 
+width: 300px;
+height: auto;
+/* transform: rotate(4deg); */
+aspect-ratio: 300 / 200; 
+background-image: url('bau/img/card.png');
+background-size: contain;
+background-repeat: no-repeat;
+background-position: center;
+pointer-events: none;
+}
+
+/* animation: floatImage 5s infinite ease-in-out;
+
+@keyframes floatImage {
+0%   { transform: translateX(-50%) translateY(0); }
+50%  { transform: translateX(-50%) translateY(-10px); }
+100% { transform: translateX(-50%) translateY(0); }
+}
+*/
+
+/* width over 500px */
+@media (min-width: 501px) {
+.colophone:hover .colophone_txt {
+opacity: 1;
+visibility: visible;
+}
+}
+
+/* switch to visible */
+.colophone_txt.active {
+opacity: 1;
+visibility: visible;
+}
+
+
+
+/* time */
+.clock {
+/* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
+
+
+/* position: fixed;
+top: 20px;
+right: 0;
+transform: translateX(-50%);
+*/
+}
+
+
+
+/* navigation */
+
+.nav-list {
+position: fixed;
+list-style: none; 
+margin: 0;
+padding: 40px 0;
+left: 34px;
+top :40%;
+}
+
+.nav-list li {
+margin: 0;
+padding: 0;
+}
+
+.nav-list button {
+all: unset;           /* すべてのブラウザデフォルトスタイルを無効化 */
+cursor: pointer;      /* ポインタカーソルに（必要に応じて） */
+margin-bottom: 3px;
+}
+
+.target-element {
+padding-left: 34px;
+box-sizing: border-box;
+}
+
+
+
+
+
+/* img */
+.draggable_container {
+min-width: 100vw;
+}
+
+.img-container {
+width: 350px;
+position: fixed;
+cursor: move;
+filter: invert(0.8);
+mix-blend-mode: color-burn;
+}
+
+body.dark-mode  .img-container{
+mix-blend-mode: exclusion;
+opacity: 0.9;
+filter: none;
+}
+
+.img-container img {
+background-color:var(--light);
+/* filter: grayscale(1); */
+opacity: 0.9;
+width: 350px;
+pointer-events: none;
+}
+
+.col img{
+display: inline-block;
+}
+
+
+
+
+
+/* switch button */
+.switchbtn {
+position: fixed;
+top: 98px;
+right: 0;
+transform: translate(-50%, -50%);
+z-index: 9999; 
+cursor: pointer;
+
+}
+
+.switchbtn img{
+width:77px;
+height: auto;
+}
+/* 
+body.dark-mode   .switchbtn {
+background-color: var(--light);
+} */
+
+
+/* container horizontal all */
+.horizontal-col-container {
+width: 100vw;
+height:calc(40vh - 95px);
+overflow-x: auto;              /* 横スクロール可能 */
+scroll-behavior: smooth;
+display: flex;
+position: fixed;
+bottom :0;
+}
+
+/* individual */
+.col {
+height: 100%;
+flex: 0 0 auto;
+width: auto;
+padding: 30px 34px 22px 34px;
+box-sizing: border-box;
+/* background-color: pink; */
+}
+
+
+/* column layout */
+.txt {
+column-width: 340px;   
+height: 100%; 
+overflow-x: unset; 
+column-gap: 20px;
+white-space: normal;
+width: calc(340px * 5 + 2px * 4); 
+/* background-color: red; */
+}
+
+@media screen and (max-width: 1000px) {
+.txt {
+column-width: 300px; 
+}
+}
+
+.entry {
+break-inside: avoid;
+-webkit-column-break-inside: avoid; /* Safari対策 */
+}
+
+
+/* museum tag */
+.logo_museum_container img {
+width: 282px;
+position: fixed;
+right: 35px;
+bottom: calc(40vh - 95px);
+}
+
+
+
+/* @media screen and (max-width: 720px) {
+.horizontal-col-container #col-all
+{
+position: static; 
+columns: 1;   
+column-gap: 0; 
+width: 200px; 
+max-height: none;
+overflow: scroll;
+margin-top: calc(30vh - 95px);
+}
+} */
+
+
+
+/* txt type setting */
+.txt p:not(:first-of-type) {
+text-indent: 7rem;
+}
+
+/* print feature */
+@media print {
+.horizontal-col-container {
+display: none;
+}
+
+
+/* margin minimize */
+@page {
+size: A4 landscape;
+margin: 0;
+}
+body {
+zoom: 70%;
+}
+
+* {
+page-break-before: avoid;
+page-break-after: avoid;
+page-break-inside: avoid;
+}
+}
+
+
+
+
+
+@media screen and (max-width: 900px) { 
+.col{
+display: block;
+} 
+} 
+
+/* vertical iPad / horizontal iPhone */
+@media screen and (max-width: 768px) {
+#columns .break {
+break-after: initial;
+margin-bottom: -22px;
+}
+}
+
+/* vertical iPhone */
+@media screen and (max-width: 500px) {
+#columns .break {
+break-after: initial;
+margin-bottom: -22px;
+}
+#content .col
+{
+width: auto;
+display: block;
+}
+
+#intro
+{
+width: auto;
+}
+#card-list-container > .col
+{
+width: auto;
+display: block;
+}
+.horizontal-col-container .text,
+#col-all
+{
+padding-left: 0;
+}
+
+} 
+
+
+
+
