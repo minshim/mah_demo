@@ -154,6 +154,12 @@ box-sizing: border-box;
 }
 
 
+@media screen and (max-width: 500px) {
+  .nav-list  {
+    display: none;
+  }
+}
+
 
 
 
@@ -224,6 +230,15 @@ position: fixed;
 bottom :0;
 }
 
+
+@media screen and (max-width: 500px) {
+  .horizontal-col-container {
+    height:30vh;
+  }
+}
+
+
+
 /* individual */
 .col {
 height: 100%;
@@ -245,6 +260,8 @@ white-space: normal;
 width: calc(340px * 5 + 2px * 4); 
 /* background-color: red; */
 }
+
+
 
 @media screen and (max-width: 1000px) {
 .txt {
