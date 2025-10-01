@@ -50,18 +50,42 @@ text-decoration: none;
 color: var(--dark);
 }
 
-.colophone {
-position: fixed;
-top: 20px;
-left: 34px;
-transform: translateX(0%);
-margin-right:140px;
-z-index: 9999;
+
+
+
+@media screen and (max-width: 500px) {
+  .header {
+    left: 0;
+    justify-content: flex-start;
+  }
 }
 
 
 /* colophone */
 /* default */
+
+.colophone {
+  position: fixed;
+  top: 20px;
+  left: 34px;
+  transform: translateX(0%);
+  margin-right:140px;
+  z-index: 9999;
+  cursor: pointer;
+  }
+
+  .colophone_label {
+    display: block;
+    cursor: pointer; /* 明示的に「クリックできる」カーソルに */
+  }
+  
+  
+
+@media screen and (max-width: 500px) {
+  .colophone  {
+    top: 40px;
+  }
+}
 .colophone_txt {
 margin-top:20px;
 opacity: 0;
@@ -70,6 +94,23 @@ transition: opacity 0.3s ease;
 position: relative; 
 }
 
+@media screen and (max-width: 500px) {
+    .colophone_txt {
+      pointer-events: none; 
+    }
+  }
+
+  /* width over 500px  */
+@media (min-width: 501px) {
+  .colophone:hover .colophone_txt {
+  opacity: 1;
+  visibility: visible;
+  }
+  }
+  
+
+
+/* card */
 .colophone_txt::after {
 content: "";
 position: absolute;
@@ -96,13 +137,6 @@ pointer-events: none;
 }
 */
 
-/* width over 500px */
-@media (min-width: 501px) {
-.colophone:hover .colophone_txt {
-opacity: 1;
-visibility: visible;
-}
-}
 
 /* switch to visible */
 .colophone_txt.active {
@@ -291,6 +325,15 @@ bottom: calc(40vh - 95px);
 .logo_museum_container a {
  mix-blend-mode: multiply; 
 }
+
+
+/* 一時的！ */
+@media screen and (max-width: 500px) {
+  .logo_museum_container {
+display:none;
+  }
+}
+
 
 
 /* @media screen and (max-width: 720px) {
