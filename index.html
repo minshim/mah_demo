@@ -7,7 +7,7 @@
 
 <link rel="stylesheet" href="styles.css">
 
-<title>Document</title>
+<title>fistimpressions.space</title>
 </head>
 <body>
 
@@ -17,14 +17,16 @@
 
 <!-- colophone  -->
 <div class="colophone">
+    <div class="colophone_label">
 Note on October 1, 2025
+</div>
 <p class="colophone_txt"> For First Impressions, Atmospheric Solutions created an operating system called Layout in collaboration with graphic designer Minami Shimakage. The system comprises a constantly evolving, poetic web interface, invitations distributed during performances, and an object designed to integrate the museum's archives. Playing on the homonymy of the word layout - both the graphic arrangement of information in a given space, and the tradition of preparing a body for burial - the project questions the architectures through which images become visible, legible, and the conditions under which they begin to disintegrate. Inspired by the museum as an interface for organizing memory, Layout explores the protocols of preservation, exhibition and obsolescence.   </p>
 </div>
 
 <!-- header  -->
 <div class="header">
 <div class="Layout">
-<a href="/text_v1.4.html">firstimpressions.space</a>  
+<a href="/index.html">firstimpressions.space</a>  
 </div>
 <div class="Archive_Salon">
 <a href="/ArchiveSalon.html"> Archive Salon</a>  
@@ -46,7 +48,7 @@ Note on October 1, 2025
 <img src="bau/img/mah_test 5.png" alt=""></div>
 <div class="img-container" style="top: 119px; right: 0px;">
 <img src="bau/img/mah_test 1.png" alt=""></div>
-<div class="img-container" style="top: 190px; left: 906px;">
+<div class="img-container" style="top: 190px; left: 96px;">
 <img src="bau/img/mah_test 10.png" alt=""></div>
 <!-- <div class="img-container" style="top: 0px; right: 100px;">
 <img src="bau/img/sortie.svg" alt=""></div> -->
@@ -74,7 +76,7 @@ Note on October 1, 2025
 <div class="col">
 <div class="txt">
 <div class="logo_museum_container">
-<a style="mix-blend-mode: multiply;" href="https://www.mahmah.ch/">
+<a href="https://www.mahmah.ch/">
   <img src="bau/img/logo_museum.png" alt="">
 </a>
 </div>
@@ -237,38 +239,43 @@ setInterval(updateClock, 1000);
 
 
 // header 
-function setupClickToggle() {
-const colophone = document.querySelector('.colophone');
-const text = document.querySelector('.colophone_txt');
+document.addEventListener('DOMContentLoaded', function () {
+    const colophone = document.querySelector('.colophone');
+    const text = document.querySelector('.colophone_txt');
 
-function enableClickMode() {
-colophone.addEventListener('click', toggleText);
-}
+    let isClickModeEnabled = false;
 
-function disableClickMode() {
-colophone.removeEventListener('click', toggleText);
-text.classList.remove('active'); // 状態を戻す
-}
+    function toggleText() {
+      text.classList.toggle('active');
+    }
 
-function toggleText() {
-text.classList.toggle('active');
-}
+    function enableClickMode() {
+      if (!isClickModeEnabled) {
+        colophone.addEventListener('click', toggleText);
+        isClickModeEnabled = true;
+      }
+    }
 
-// 画面サイズに応じてイベントを切り替え
-function checkViewport() {
-if (window.innerWidth <= 500) {
-enableClickMode();
-} else {
-disableClickMode();
-}
-}
+    function disableClickMode() {
+      if (isClickModeEnabled) {
+        colophone.removeEventListener('click', toggleText);
+        text.classList.remove('active'); // 状態を戻す
+        isClickModeEnabled = false;
+      }
+    }
 
-window.addEventListener('resize', checkViewport);
-window.addEventListener('load', checkViewport);
-}
+    function checkViewport() {
+      if (window.innerWidth <= 500) {
+        enableClickMode();
+      } else {
+        disableClickMode();
+      }
+    }
 
-setupClickToggle();
-
+    // 初期実行 + リサイズ対応
+    checkViewport();
+    window.addEventListener('resize', checkViewport);
+  });
 
 
 
@@ -303,6 +310,8 @@ behavior: 'smooth'
 }
 });
 });
+
+
 
 </script>
 </html>
