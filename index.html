@@ -186,36 +186,70 @@ For First Impressions, Atmospheric Solutions created an operating system called 
 
 
 <script>
-const draggables = document.querySelectorAll('.img-container');
+
+
+  const draggables = document.querySelectorAll('.img-container');
 
 draggables.forEach(item => {
-let isDragging = false;
-let offset = { x: 0, y: 0 };
+  let isDragging = false;
+  let offset = { x: 0, y: 0 };
 
-item.addEventListener('mousedown', (e) => {
-isDragging = true;
-offset = {
-x: e.clientX - item.offsetLeft,
-y: e.clientY - item.offsetTop
-};
+  const startDrag = (x, y) => {
+    isDragging = true;
+    offset = {
+      x: x - item.offsetLeft,
+      y: y - item.offsetTop
+    };
+  };
 
-const onMouseMove = (e) => {
-if (isDragging) {
-item.style.left = (e.clientX - offset.x) + 'px';
-item.style.top = (e.clientY - offset.y) + 'px';
-}
-};
+  const drag = (x, y) => {
+    if (isDragging) {
+      item.style.left = (x - offset.x) + 'px';
+      item.style.top = (y - offset.y) + 'px';
+    }
+  };
 
-const onMouseUp = () => {
-isDragging = false;
-document.removeEventListener('mousemove', onMouseMove);
-document.removeEventListener('mouseup', onMouseUp);
-};
+  const endDrag = () => {
+    isDragging = false;
+  };
 
-document.addEventListener('mousemove', onMouseMove);
-document.addEventListener('mouseup', onMouseUp);
+  // Mouse events
+  item.addEventListener('mousedown', (e) => {
+    e.preventDefault();
+    startDrag(e.clientX, e.clientY);
+
+    const onMouseMove = (e) => drag(e.clientX, e.clientY);
+    const onMouseUp = () => {
+      endDrag();
+      document.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('mouseup', onMouseUp);
+    };
+
+    document.addEventListener('mousemove', onMouseMove);
+    document.addEventListener('mouseup', onMouseUp);
+  });
+
+  // Touch events
+  item.addEventListener('touchstart', (e) => {
+    const touch = e.touches[0];
+    startDrag(touch.clientX, touch.clientY);
+
+    const onTouchMove = (e) => {
+      const touch = e.touches[0];
+      drag(touch.clientX, touch.clientY);
+    };
+
+    const onTouchEnd = () => {
+      endDrag();
+      document.removeEventListener('touchmove', onTouchMove);
+      document.removeEventListener('touchend', onTouchEnd);
+    };
+
+    document.addEventListener('touchmove', onTouchMove);
+    document.addEventListener('touchend', onTouchEnd);
+  });
 });
-});
+
 
 
 
