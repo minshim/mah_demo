@@ -208,13 +208,17 @@ position: fixed;
 cursor: move;
 filter: invert(0.8);
 mix-blend-mode: color-burn;
+touch-action: none;
 }
+
 
 body.dark-mode  .img-container{
 mix-blend-mode: exclusion;
 opacity: 0.9;
 filter: none;
 }
+
+
 
 .img-container img {
 background-color:var(--light);
@@ -223,6 +227,18 @@ opacity: 0.9;
 width: 350px;
 pointer-events: none;
 }
+
+@media screen and (max-width: 500px) {
+  .img-container {
+    width: 220px;
+  }
+  .img-container img {
+    width: 220px;
+  }
+
+}
+
+
 
 .col img{
 display: inline-block;
