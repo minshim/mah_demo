@@ -83,7 +83,8 @@ color: var(--dark);
 
 @media screen and (max-width: 500px) {
   .colophone  {
-    top: 40px;
+    display: none;
+    /* top: 40px; */
   }
 }
 .colophone_txt {
@@ -128,6 +129,12 @@ background-position: center;
 pointer-events: none;
 }
 
+@media screen and (max-width: 500px) {
+  .colophone_txt::after {
+    display: none;
+  }
+}
+
 /* animation: floatImage 5s infinite ease-in-out;
 
 @keyframes floatImage {
@@ -168,7 +175,7 @@ list-style: none;
 margin: 0;
 padding: 40px 0;
 left: 34px;
-top :40%;
+bottom :23%;
 }
 
 .nav-list li {
@@ -187,9 +194,9 @@ padding-left: 34px;
 box-sizing: border-box;
 }
 
-
 @media screen and (max-width: 500px) {
-  .nav-list  {
+
+  .nav-list button span {
     display: none;
   }
 }
