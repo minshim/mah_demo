@@ -256,7 +256,6 @@ right: 0;
 transform: translate(-50%, -50%);
 z-index: 9999; 
 cursor: pointer;
-
 }
 
 .switchbtn img{
@@ -267,6 +266,17 @@ height: auto;
 body.dark-mode   .switchbtn {
 background-color: var(--light);
 } */
+
+
+@media screen and (max-width: 500px) {
+  .switchbtn { 
+    top: 75px;
+  }
+
+  .switchbtn img{
+    width:57px;
+  }
+}
 
 
 /* container horizontal all */
@@ -297,6 +307,13 @@ width: auto;
 padding: 30px 34px 22px 34px;
 box-sizing: border-box;
 /* background-color: pink; */
+}
+
+
+@media screen and (max-width: 500px) {
+  .horizontal-col-container {
+    padding: 30px 34px 2px 0px;
+  }
 }
 
 
