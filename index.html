@@ -187,8 +187,7 @@ For First Impressions, Atmospheric Solutions created an operating system called 
 
 <script>
 
-
-  const draggables = document.querySelectorAll('.img-container');
+const draggables = document.querySelectorAll('.img-container');
 
 draggables.forEach(item => {
   let isDragging = false;
@@ -213,7 +212,7 @@ draggables.forEach(item => {
     isDragging = false;
   };
 
-  // Mouse events
+  // ---- Mouse Events ----
   item.addEventListener('mousedown', (e) => {
     e.preventDefault();
     startDrag(e.clientX, e.clientY);
@@ -229,9 +228,10 @@ draggables.forEach(item => {
     document.addEventListener('mouseup', onMouseUp);
   });
 
-  // Touch events
+  // ---- Touch Events ----
   item.addEventListener('touchstart', (e) => {
     const touch = e.touches[0];
+    e.preventDefault(); // ← スクロール防止！
     startDrag(touch.clientX, touch.clientY);
 
     const onTouchMove = (e) => {
@@ -245,10 +245,11 @@ draggables.forEach(item => {
       document.removeEventListener('touchend', onTouchEnd);
     };
 
-    document.addEventListener('touchmove', onTouchMove);
+    document.addEventListener('touchmove', onTouchMove, { passive: false });
     document.addEventListener('touchend', onTouchEnd);
   });
 });
+
 
 
 
