@@ -230,10 +230,10 @@ pointer-events: none;
 
 @media screen and (max-width: 500px) {
   .img-container {
-    width: 220px;
+    width: 180px;
   }
   .img-container img {
-    width: 220px;
+    width: 180px;
   }
 
 }
