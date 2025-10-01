@@ -211,7 +211,7 @@ min-width: 100vw;
 
 .img-container {
 width: 350px;
-position: fixed;
+position: absolute;
 cursor: move;
 filter: invert(0.8);
 mix-blend-mode: color-burn;
