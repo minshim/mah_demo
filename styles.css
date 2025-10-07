@@ -366,6 +366,13 @@ bottom: calc(40vh - 95px);
  mix-blend-mode: multiply; 
 }
 
+  @media screen and (max-width: 500px) {
+  .logo_museum_container img {
+    width: 272px;
+    right: 30px;
+    bottom: calc(40vh - 110px);
+    }
+
 
 /* 一時的！
 @media screen and (max-width: 500px) {
