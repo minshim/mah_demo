@@ -367,13 +367,13 @@ bottom: calc(40vh - 95px);
 }
 
 
-/* 一時的！ */
+/* 一時的！
 @media screen and (max-width: 500px) {
   .logo_museum_container {
 display:none;
   }
 }
-
+ */
 
 
 /* @media screen and (max-width: 720px) {
