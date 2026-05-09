@@ -112,22 +112,22 @@ position: relative;
 
 
 /* card */
-.colophone_txt::after {
+/* .colophone_txt::after {
 content: "";
 position: absolute;
 bottom: -220px; 
 right: 0%; 
 transform: translateX(0%); 
 width: 300px;
-height: auto;
+height: auto; */
 /* transform: rotate(4deg); */
-aspect-ratio: 300 / 200; 
+/* aspect-ratio: 300 / 200; 
 background-image: url('bau/img/card.png');
 background-size: contain;
 background-repeat: no-repeat;
 background-position: center;
 pointer-events: none;
-}
+} */
 
 @media screen and (max-width: 500px) {
   .colophone_txt::after {
@@ -211,7 +211,7 @@ min-width: 100vw;
 
 .img-container {
 width: 350px;
-position: absolute;
+position: fixed;
 cursor: move;
 filter: invert(0.8);
 mix-blend-mode: color-burn;
@@ -228,7 +228,6 @@ filter: none;
 
 
 .img-container img {
-
 /* filter: grayscale(1); */
 opacity: 0.9;
 width: 350px;
@@ -366,21 +365,25 @@ bottom: calc(40vh - 95px);
  mix-blend-mode: multiply; 
 }
 
-  @media screen and (max-width: 500px) {
+
+@media screen and (max-width: 500px) {
   .logo_museum_container img {
     width: 272px;
     right: 30px;
     bottom: calc(40vh - 110px);
     }
 
+}
 
-/* 一時的！
+
+
+/* 一時的！ 
 @media screen and (max-width: 500px) {
   .logo_museum_container {
 display:none;
   }
 }
- */
+*/
 
 
 /* @media screen and (max-width: 720px) {
