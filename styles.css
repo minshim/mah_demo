@@ -288,7 +288,7 @@ background-color: var(--light);
 /* container horizontal all */
 .horizontal-col-container {
 width: 100vw;
-height:calc(40vh - 95px);
+height:calc(37vh - 95px);
 overflow-x: auto;              /* 横スクロール可能 */
 scroll-behavior: smooth;
 display: flex;
